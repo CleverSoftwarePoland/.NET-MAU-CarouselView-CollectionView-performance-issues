@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MApp.Perf.Controls"
+             x:Class="MApp.Perf.MainPage">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="Tab1Template">
+            <controls:ViewWithTitle/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="Tab2Template">
+            <controls:ViewWithItemList />
+        </DataTemplate>
+     
+
+        <controls:TabsDataTemplateSelector x:Key="TabsSelector"
+                                                Tab1Template="{StaticResource Tab1Template}"
+                                                Tab2Template="{StaticResource Tab2Template}"/>
+    </ContentPage.Resources>
+    
+    <CarouselView ItemsSource="{Binding Collection}" ItemTemplate="{StaticResource TabsSelector}" Background="#AFAFAF" >
+       
+    </CarouselView>
+
+</ContentPage>
